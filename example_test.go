@@ -3,10 +3,11 @@ package ctxreader_test
 import (
 	"bufio"
 	"context"
-	"ctxreader"
 	"fmt"
 	"os"
 	"time"
+
+	"github.com/alexballas/ctxreader"
 )
 
 // This example shows how to use NewContextReader.
