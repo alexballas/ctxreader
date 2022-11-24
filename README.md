@@ -1,4 +1,4 @@
-# Context-aware io.Reader
+# Context-aware io.Reader [![Go Reference](https://pkg.go.dev/badge/github.com/alexballas/ctxreader.svg)](https://pkg.go.dev/github.com/alexballas/ctxreader)
 
 ## Example:
 ```go
