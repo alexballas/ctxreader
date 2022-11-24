@@ -1,8 +1,4 @@
-# Context-aware io.Reader
-
-## Example:
-```go
-package main
+package ctxreader_test
 
 import (
 	"bufio"
@@ -14,7 +10,7 @@ import (
 )
 
 // This example shows how to use NewContextReader.
-func main() {
+func ExampleNewContextReader() {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
@@ -33,4 +29,3 @@ func main() {
 		fmt.Println("Time is up!", buf.Err())
 	}
 }
-```
