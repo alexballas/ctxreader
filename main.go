@@ -8,6 +8,14 @@ import (
 
 // NewContextReader creates a new io.Reader with a context.
 func NewContextReader(ctx context.Context, r io.Reader) io.Reader {
+	if ctx == nil {
+		ctx = context.Background()
+	}
+
+	if r == nil {
+		return nil
+	}
+
 	pr, pw := io.Pipe()
 
 	ctxCan, cancel := context.WithCancel(ctx)
