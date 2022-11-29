@@ -26,23 +26,23 @@ func NewContextReader(ctx context.Context, r io.Reader) io.Reader {
 		cancel()
 	}()
 
-	sc := &timeoutReader{
+	cr := &ctxReader{
 		pr:  pr,
 		pw:  pw,
 		ctx: ctxCan,
 	}
 
-	return sc
+	return cr
 }
 
-type timeoutReader struct {
+type ctxReader struct {
 	once sync.Once
 	pr   *io.PipeReader
 	pw   *io.PipeWriter
 	ctx  context.Context
 }
 
-func (s *timeoutReader) Read(p []byte) (n int, err error) {
+func (s *ctxReader) Read(p []byte) (n int, err error) {
 	s.once.Do(func() {
 		go func() {
 			<-s.ctx.Done()
