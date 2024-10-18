@@ -7,10 +7,11 @@ package main
 import (
 	"bufio"
 	"context"
-	"ctxreader"
 	"fmt"
 	"os"
 	"time"
+
+	"github.com/alexballas/ctxreader"
 )
 
 // This example shows how to use NewContextReader.
@@ -30,7 +31,7 @@ func main() {
 	case nil:
 		fmt.Println("You entered:", buf.Text())
 	default:
-		fmt.Println("Time is up!", buf.Err())
+		fmt.Println("\rTime is up!", buf.Err())
 	}
 }
 ```
